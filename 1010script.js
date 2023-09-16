@@ -142,18 +142,18 @@ function number(x)   {
     console.log(primefact.join(" * "));
     console.log(factors.join(" "));
     if (primes.includes(x) == true && x != 1 && x != 4 && x != 6 && x != 8 && x != 9) {
-        document.getElementById("base").innerHTML += "<section class=box><p style=font-size:40px;margin:0px;color:white;background-color:red;><b><font face=helvetica>" + x + "</font></b></p>" +
+        document.getElementById("base").innerHTML += "<div class=box><p style=font-size:40px;margin:0px;color:white;background-color:red;><b><font face=helvetica>" + x + "</font></b></p>" +
         "<p align=left style=background-color:silver;margin:0px;padding:5px;><font face=arial><b>Number:   </b>Prime</font></p>" +
         "<p align=left style=background-color:white;margin:0px;padding:5px;><font face=arial><b>Factors:   </b>" + factors.join(", ") + "</font></p>" +
-        "<p align=left style=background-color:silver;margin:0px;padding:5px;><font face=arial><b>Prime Factors:   </b> 1 * " + x + "</font></p></section>";
+        "<p align=left style=background-color:silver;margin:0px;padding:5px;><font face=arial><b>Prime Factors:   </b> 1 * " + x + "</font></p></div>";
     } else if (x == 1) {
-        document.getElementById("base").innerHTML += "<section class=box><p style=font-size:40px;margin:0px;><font face=helvetica>" + x + "</font></p>" +
-        "<p align=left style=background-color:white;margin:0px;padding:5px;><font face=arial>The number 1 is neither a prime number nor a composite number because it doesnt satisfy the definitions of both categories. Prime numbers have exactly two distinct factors (which is 1 and itself), while composite numbers are greater than 1 and can be factored into smaller integers. Since 1 doesnt fit in these definitions, it falls outside the prime and composite classifications.</font></p></section>";
+        document.getElementById("base").innerHTML += "<div class=box><p style=font-size:40px;margin:0px;><font face=helvetica>" + x + "</font></p>" +
+        "<p align=left style=background-color:white;margin:0px;padding:5px;><font face=arial>The number 1 is neither a prime number nor a composite number because it doesnt satisfy the definitions of both categories. Prime numbers have exactly two distinct factors (which is 1 and itself), while composite numbers are greater than 1 and can be factored into smaller integers. Since 1 doesnt fit in these definitions, it falls outside the prime and composite classifications.</font></p></div>";
     } else {
-        document.getElementById("base").innerHTML += "<section class=box><p style=font-size:40px;margin:0px;><font face=helvetica>" + x + "</font></p>" +
+        document.getElementById("base").innerHTML += "<div class=box><p style=font-size:40px;margin:0px;><font face=helvetica>" + x + "</font></p>" +
         "<p align=left style=background-color:silver;margin:0px;padding:5px;><font face=arial><b>Number:   </b>Composite</font></p>" +
         "<p align=left style=background-color:white;margin:0px;padding:5px;><font face=arial><b>Factors:   </b>" + factors.join(", ") + " (" + nfact + " factors)</font></p>" +
-        "<p align=left style=background-color:silver;margin:0px;padding:5px;><font face=arial><b>Prime Factors:   </b>" + primefact.join(" * ") + "</font></p></section>";
+        "<p align=left style=background-color:silver;margin:0px;padding:5px;><font face=arial><b>Prime Factors:   </b>" + primefact.join(" * ") + "</font></p></div>";
     }
     document.getElementById("buttons").innerHTML = "";
     document.getElementById("buttons").innerHTML ="<button onclick=back()>Back to grid</button>" 
