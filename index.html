@@ -26,38 +26,31 @@
                 border: none;
             }
             .prime:hover {
-                font-size: 23px;
                 background-color:rgb(200, 0, 0);
-                color: white;
-                padding-left: 5px;
-                padding-right: 5px;
-                cursor: pointer;
-                border: none;
             }
             .notprime:hover   {
-                padding-left: 5px;
-                padding-right: 5px;
-                cursor: pointer;
                 background-color:rgb(169, 169, 169);
-                border: none;
             }
             .box    {
-                width: 322px;
-                min-height: 322px;
-                max-height:auto;
+                width: 300px;
+                height: 300px;
                 padding: 0px;
                 margin-bottom: 10px;
                 border: 3px solid blue;
                 background-color: white;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+                overflow: auto;
             }
             #grid   {
                 border: 3px blue solid; 
                 text-align: center; 
                 background-color: white;
                 padding:0px;
+                border-collapse: collapse;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
             }
             body{
-                background-color: #e6e6e6;
+                background: linear-gradient(0deg, rgba(130,130,130,1) 0%, #e9e9e9 85%);
             }
             h2, h3  {
                 text-align: center;
@@ -91,15 +84,15 @@
         <br>
         <hr style="background-color: grey; height: 2px; border-width: 0px;">
         <h2>Welcome!</h2>
-        <p><b>10x10 Prime Number Grid</b> is a website that generates 10x10 number grids and detects numbers that are <b>primes</b> in the grid. This website can also generate grids that are beyond the 1-100 grid, meaning that you could discover more primes over 100.</p>
+        <p><b>10x10 Prime Number Grid</b> is a website that generates 10x10 number grids and detects numbers that are <b>primes</b> in the grid. This website can also generate grids that are beyond from the 1-100 grid, meaning that you could discover more primes over 100.</p>
             <h3>Instructions</h3>
-            <p>When starting the website, the website would create a grid from 1-100. To move the grid, click the '>' button to go to the next grid, and click the '<<' button to go to the previous grid. You could also go to the specific grid you want by typing the ordinal number of that grid into the insert box (e.g. inputting <i>"256"</i> will lead to Grid #256 for numbers from 25601 to 25700) and press the 'Enter' button.
+            <p>When starting the website, the website would create a grid from 1-100. To move the grid, click the '>>' button to go to the next grid, and click the '<<' button to go to the previous grid. You could also go to the specific grid you want by typing the ordinal number of that grid into the insert box (e.g. inputting <i>"256"</i> will lead to Grid #256 for numbers from 25601 to 25700) and press the 'Enter' button.
                 The 'Reset' button is used to go back to Grid #0, and the 'Randomize Grid' button is used to go to any random grid (from Grid #0 to Grid #10000).
-                You could also press one of the numbers of the grid to see its description card (its label is <i>"Card #n"</i>). The card will give some descriptions of the number (e.g. if the number is prime or not, how many factors the number has, etc.).</p>
+                You could also press one of the numbers of the grid to see its description card (its label is <i>"Card #n"</i>). The card will give some descriptions about the number (e.g. if the number is prime or not, how many factors does the number has, etc).</p>
             <h3>About</h3>
             <p>The idea of this website was originated from <a href="https://scratch.mit.edu/projects/827741044/">a project I created from Scratch</a> back in March 2023. Although the project functions the same as the website, the only difference is that the project detects slower than the website.
-            5 months later, I tried remaking the project using HTML, CSS, and Javascript for fast rendering and detection, and it luckily worked. Another difference is I added a description (or "card") for each number on the website (like factors, prime factors, etc.).
-            This website is still incomplete, so I'm sorry if the website has fewer features and some bugs. Thank you for enjoying and using this website, I'm proud that you liked it!</p>
+            5 months later, I tried remaking the project using HTML, CSS, and Javascript for fast render and detection, and it luckily works. Another difference is I added a description (or "card") for each number in the website (like factors, prime factors, etc).
+            This website is still incomplete, so I'm sorry if the website has less features and some bugs. Thank you for enjoying and using this website, I'm proud that you liked it!</p>
             <p style="text-align: center;">Created by <b><a href="https://www.youtube.com/@HosheaManein/">Hoshea Manein</a></b></p>
     </body>
 </html>
