@@ -167,7 +167,6 @@ function number(x)   {
 
 function back() {
     document.getElementById("desc").style.display = "none";
-    document.getElementById("lcm").style.display = "none";
     document.getElementById("table").style.display = "block";
     creategrid();
 }
