@@ -1,0 +1,91 @@
+.table_buttons    {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.prime, .notprime   {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 23px;
+    cursor: pointer;
+    border: none;
+}
+
+.prime{
+    color: white;
+    background-color: red;
+}
+
+.notprime{
+    background-color: white;
+}
+.prime:hover {
+    background-color:rgb(200, 0, 0);
+}
+
+.notprime:hover   {
+    background-color:rgb(169, 169, 169);
+}
+
+#table {
+    display: block;
+}
+
+#desc, #lcm {
+    display: none;
+}
+
+
+.side {
+    margin: 0px; 
+    width: 50%;
+    background-color: white; 
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
+    border-bottom: 2px solid black;
+    overflow: auto;
+}
+
+.box    {
+    width: 300px;
+    height: 100%;
+    padding: 0px;
+    margin-bottom: 10px;
+    border: 3px solid blue;
+    background-color: white;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 25%);
+}
+
+.container  {
+    display: flex;
+}
+
+#grid   {
+    text-align: center; 
+    border-collapse: collapse;
+}
+
+body, html{
+    background: #cccccc;
+}
+h2, h3  {
+    text-align: center;
+    font-family:helvetica;
+}
+p   {
+    font-family: arial;
+}
+.inside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -9px;
+}
+#previous, #next   {
+    cursor: pointer;
+}
+
+#n1_input, #n2_input {
+    width: 130px;
+}
