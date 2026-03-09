@@ -2,59 +2,42 @@
 <html>
     <head>
         <title>10x10 Prime Number Grid</title>
-        <meta name="description" content="10x10 Prime Number Grid">
-        <meta name="keywords" content="prime numbers, primes, prime grid, h0shea, 10x10 prime number grid">
-        <meta name="author" content="Hoshea Manein">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="1010script.js"></script>
         <link rel="icon" type="image/x-icon" href="1010flavicon.png">
         <link rel="stylesheet" href="1010css.css">
     </head>
 
     <body onload="move(0)">
-        <center><img src="1010pgn logo.png" style="height:93px;width:188px;margin-bottom:-28px;">
-        </center>
-        <div id="table">
-            <center>
-            <div id="base">
-                <h1 id="table_ordinal" align="center" style="margin-bottom: 4px;font-family: helvetica;">#0</h1>
+        <div id="main" class="main">
+                <h1 id="table_ordinal" align="center" style="margin: 0 0 0.25em 0; font-family: helvetica;"></h1>
                 <div class="inside">
                     <img src="left.svg" onclick="move(-1)" style="margin-right:10px;" id="previous"></img>
                     <table id="grid" class="box"></table>
                     <img src="right.svg" onclick="move(1)" style="margin-left:10px;" id="next"></img>
                 </div>
-                <p id="numberofprimes" style="font-family: arial; margin: 10px;"></p>
-            </div>
-            </center>
-            <div id="table_buttons" class="table_buttons">
-                <input id="input"placeholder="Insert grid number..." type="number" min="0"></input>
-                <button onclick="enter()" id="enter">Enter</button>
-                <br>
-                <button onclick="reset()" style="margin-top:5px;">Reset</button>
-                <button onclick="random()" style="margin-top:5px;">Randomize Grid</button>
+                <p id="numberofprimes" style="font-family: arial; margin: 10px; text-align: center;"></p>
+                <div id="table_buttons" class="table_buttons">
+                    <input id="input" placeholder="Insert grid number..." type="number" min="0"></input>
+                    <button onclick="enter()" id="enter">Enter</button>
+                    <br>
+                    <button onclick="reset()" style="margin-top:5px;">Reset</button>
+                    <button onclick="random(1, 10000)" style="margin-top:5px;">Randomize Grid</button>
+                </div>
             </div>
         </div>
-        <center>
-        <div id="desc">
-            <h1 id="desc_ordinal" align="center" style="margin-bottom: 4px;font-family: helvetica;">#0</h1>
+
+        <div id="desc" class="desc">
+            <h1 id="desc_ordinal" align="center" style="margin: 0 0 0.25em 0; font-family: helvetica;">#0</h1>
             <div class="box">
                 <p id="n" style="font-size:40px; margin:0px; color:black; background-color:white; text-align:center; font-family:helvetica;"><b><font face=helvetica>N</font></b></p>
-                <p id="numbertype" align=left style="background-color:silver; margin:0px; padding:5px;"><font face=arial><b>Number:   </b></font></p>
-                <p id="factors" align=left style="background-color:#efefef; margin:0px; padding:5px;"><font face=arial><b>Factors:   </b></font></p>
-                <p id="primefactors" align=left style="background-color:silver; margin:0px; padding:5px;"><font face=arial><b>Prime Factorization:   </b></font></p>
+                <p id="numbertype" style="background-color:silver; margin:0px; padding:5px;"><font face=arial><b>Number:   </b></font></p>
+                <p id="factors" style="background-color:#efefef; margin:0px; padding:5px;"><font face=arial><b>Factors:   </b></font></p>
+                <p id="primefactors" style="background-color:silver; margin:0px; padding:5px;"><font face=arial><b>Prime Factorization:   </b></font></p>
             </div>
             <div class="desc_buttons">
                 <button onclick="back()">Back to grid</button>
             </div>
         </div>
-    </center>
-        <hr style="background-color: grey; height: 2px; border-width: 0px;">
-        <h2>Welcome!</h2>
-        <p><b>10x10 Prime Number Grid</b> is a website that generates 10x10 number grids and detects numbers that are <b>primes</b> in the grid. This website can also generate grids that are beyond from the 1-100 grid, meaning that you could discover more primes over 100.</p>
-            <h3>About</h3>
-            <p>The idea of this website was originated from <a href="https://scratch.mit.edu/projects/827741044/">a project I created from Scratch</a> back in March 2023. Although the project functions the same as the website, the only difference is that the project detects slower than the website.
-            5 months later, I tried remaking the project using HTML, CSS, and Javascript for fast render and detection, and it luckily works. Another difference is I added a description (or "card") for each number in the website (like factors, prime factors, etc).
-            This website is still incomplete, so I'm sorry if the website has less features and some bugs. Thank you for enjoying and using this website, I'm proud that you liked it!</p>
-            <p style="text-align: center;">Created by <b><a href="https://www.youtube.com/@HosheaManein/">Hoshea Manein</a></b></p>
+    
+        <script src="1010script.js"></script>
     </body>
 </html>
