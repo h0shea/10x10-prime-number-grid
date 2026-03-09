@@ -3,21 +3,15 @@ document.getElementById("table_ordinal").innerHTML = n;
 m = 0;
 primes = "";
 
-function insertnumber() {
-    document.getElementById("n1").innerHTML = document.getElementById("n1_input").value;
-    document.getElementById("n2").innerHTML = document.getElementById("n2_input").value;
-    lcmgcd();
-}
-
 function move(r)  {
-    if (r == -1)    {
+    if (r == -1) {
         n--;
-    }
-    else if (r == 1)    {
+    } else if (r == 1) {
         n++;
     } else {
-        n = n;
+        n = 0;
     }
+
     document.getElementById("table_ordinal").innerHTML = "<font face=helvetica>Grid #" + n + "</font>";
     creategrid();
 }
@@ -42,11 +36,29 @@ function reset()    {
     creategrid();
 }
 
-function random()    {
-    n = Math.floor(Math.random()* (10000 - 0));
+function random(a, b)    {
+    n = Math.floor(Math.random(a) * (b - 0));
     
     document.getElementById("table_ordinal").innerHTML = "<font face=helvetica>Grid #" + n + "</font>";
     creategrid();
+}
+
+function primeFactor(n) {
+    let primefact = [];
+    let p = 2;
+        
+    while (p**2 <= n)   {
+        if (n % p == 0) {
+            primefact.push(p);
+            n = n / p;
+        } else {
+            p += 1;
+        }
+    }
+
+    primefact.push(n);
+
+    return primefact; 
 }
 
 function creategrid()    {
@@ -64,83 +76,90 @@ function creategrid()    {
     }
     for (let i = 0; i < 10; i++)    {
         for (let i = 0; i < 10; i++)    {
-            let primefact = [];
-            let h = 2;
-            let g = m;
-        
-            while (h**2 <= g)   {
-                if (g % h == 0) {
-                    primefact.push(h);
-                    g = g / h;
-                } else {
-                    h += 1;
-                }
-            }
-            if (g > 1) {
-                primefact.push(g);
-            }
-
-            if (primefact.includes(m) == false)    {
-                list += "<td class=notprime onclick=number(" + m + ") style=font-size:23px;><font face=helvetica>" + m + "</font></td>";
-                m = m + 1;
-            } else if (m == 1)   {
-                list += "<td class=notprime onclick=number(" + m + ") style=font-size:23px;><font face=helvetica>" + m + "</font></td>";
-                m = m + 1;
+            
+            if (primeFactor(m).length != 1 || primeFactor(m) == 1)    {
+                list += "<td class=notprime onclick=number(" + m + ")><font face=helvetica>" + m + "</font></td>";
+                m++;
+            } else if (m > 9007199254740992) {
+                list += "<td class=notprime><font face=helvetica>Goodbye</font></td>";
             } else {
-                list += "<td class=prime onclick=number(" + m + ") onclick=document.getElementById(desc).style.display = block><b><font face=helvetica>" + m + "</font></b></td>";
+                list += "<td class=prime onclick=number(" + m + ")><b><font face=helvetica>" + m + "</font></b></td>";
                 prime.push(m);
-                m = m + 1;
+                m++;
                 p++;
             }
         }
+
         table += "<tr>" + list + "</tr>";
         list = "";
     }
+
     document.getElementById("grid").innerHTML = table;
     document.getElementById("numberofprimes").innerHTML = "There are <b>" + p + " prime numbers</b> in this 10x10 grid";
     primes = prime.join(" ");
+
+    
+    
+    let primecells = document.getElementsByClassName('prime');
+    let nonprimecells = document.getElementsByClassName('notprime');
+
+
+    if (n > 999999) {
+        for (let i = 0; i < primecells.length; i++) {
+            primecells[i].style.fontSize = "1.25em";
+        }
+        for (let i = 0; i < nonprimecells.length; i++) {
+            nonprimecells[i].style.fontSize = "1.25em";
+        }
+    } else if (n > 99999999) {
+        for (let i = 0; i < primecells.length; i++) {
+            primecells[i].style.fontSize = "0.75em";
+        }
+        for (let i = 0; i < nonprimecells.length; i++) {
+            nonprimecells[i].style.fontSize = "0.75em";
+        }
+    } else {
+        for (let i = 0; i < primecells.length; i++) {
+            primecells[i].style.fontSize = "1.5em";
+        }
+        for (let i = 0; i < nonprimecells.length; i++) {
+            nonprimecells[i].style.fontSize = "1.5em";
+        }
+    }
 }
 
 function number(x)   {
-    document.getElementById("desc").style.display = "block";
+    document.getElementById("desc").style.display = "flex";
     document.getElementById("desc_ordinal").innerHTML = "Card #" + x;
 
-    let f = 1;
-    let g = x;
-    m = x;
     const factors = [];
-    const primefact = [];
-    do  { // factors
-        if (x % f == 0) { 
-            factors.push(f);
-            f++;
-        } else{
-            f++;
+
+    for (let i = 1; i <= Math.sqrt(x); i++) {
+        if (x % i == 0) {
+            factors.push(i);
         }
-    }
-    while (f <= x);
-    let h = 2;
-    while (h**2 <= g)   { // primefact
-        if (g % h == 0) {
-            primefact.push(h);
-            g = g / h;
-        } else {
-            h += 1;
-        }
-    }
-    if (g > 1) {
-        primefact.push(g);
     }
 
-    document.getElementById("table").style.display = "none";
+    let factleng = factors.length;
+
+    for (let i = 1; i <= factleng; i++) {
+        factors.push(x / factors[factleng - i]);
+    }
+
+    if (factors[factleng - 1] == factors[factleng]) {
+        factors.splice(factleng, 1);
+    }
+
+    primeFactor(x);
     document.getElementById("n").innerHTML = x;
-    if (primes.includes(x) == true && x != 1 && x != 4 && x != 6 && x != 8 && x != 9) {
+    document.getElementById("main").style.display = "none";
+    if (primeFactor(x).length == 1) {
         document.getElementById("n").style.backgroundColor = "Red";
         document.getElementById("n").style.color = "White";
         document.getElementById("n").style.fontWeight = "Bold";
         document.getElementById("numbertype").innerHTML = "<b>Number:</b> Prime";
         document.getElementById("factors").innerHTML = "<b>Factors: </b>" + factors.join(", ") + " (" + factors.length + " factors)"; 
-        document.getElementById("primefactors").innerHTML = "<b>Prime Factors: </b>" + primefact.join(" * ");
+        document.getElementById("primefactors").innerHTML = "<b>Prime Factors: </b>" + primeFactor(x).join(" * ");
         document.getElementById("numbertype").style.backgroundColor = "Silver";
         document.getElementById("factors").style.display = "block";
         document.getElementById("primefactors").style.display = "block"; 
@@ -158,7 +177,7 @@ function number(x)   {
         document.getElementById("n").style.fontWeight = 400;
         document.getElementById("numbertype").innerHTML = "<b>Number:</b> Composite";
         document.getElementById("factors").innerHTML = "<b>Factors: </b>" + factors.join(", ") + " (" + factors.length + " factors)"; 
-        document.getElementById("primefactors").innerHTML = "<b>Prime Factors: </b>" + primefact.join(" * "); 
+        document.getElementById("primefactors").innerHTML = "<b>Prime Factors: </b>" + primeFactor(x).join(" * "); 
         document.getElementById("numbertype").style.backgroundColor = "Silver";
         document.getElementById("factors").style.display = "block";
         document.getElementById("primefactors").style.display = "block";
@@ -166,7 +185,15 @@ function number(x)   {
 }
 
 function back() {
+    document.getElementById("main").style.display = "flex";
     document.getElementById("desc").style.display = "none";
-    document.getElementById("table").style.display = "block";
     creategrid();
 }
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") { enter(); }
+    if (event.key === "ArrowLeft") { move(-1); }
+    if (event.key === "ArrowRight") { move(1); }
+    if (event.key === "r" || event.key === "R") { reset(); }
+    if (event.key === " ") { random(0, 10000); }
+});
