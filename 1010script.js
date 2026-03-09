@@ -5,7 +5,7 @@ primes = "";
 
 function move(r)  {
     if (r == -1) {
-        n--;
+        n == 0 ? n = 0 : n--;
     } else if (r == 1) {
         n++;
     } else {
@@ -62,6 +62,11 @@ function primeFactor(n) {
 }
 
 function creategrid()    {
+    if (n < 0) {
+        n == 0;
+    }
+
+
     let table = "";
     let list = "";
     let p = "0";
@@ -153,7 +158,7 @@ function number(x)   {
     primeFactor(x);
     document.getElementById("n").innerHTML = x;
     document.getElementById("main").style.display = "none";
-    if (primeFactor(x).length == 1) {
+    if (primeFactor(x).length == 1 && x != 1) {
         document.getElementById("n").style.backgroundColor = "Red";
         document.getElementById("n").style.color = "White";
         document.getElementById("n").style.fontWeight = "Bold";
@@ -167,7 +172,7 @@ function number(x)   {
         document.getElementById("n").style.backgroundColor = "White";
         document.getElementById("n").style.color = "Black";
         document.getElementById("n").style.fontWeight = 400;
-        document.getElementById("numbertype").innerHTML = "The number 1 is neither a prime number nor a composite number because it doesnt satisfy the definitions of both categories. Prime numbers have exactly two distinct factors (which is 1 and itself), while composite numbers are greater than 1 and can be factored into smaller integers. Since 1 doesnt fit in these definitions, it falls outside the prime and composite classifications."
+        document.getElementById("numbertype").innerHTML = "The number 1 is neither a prime number nor a composite number because it doesnt satisfy the definitions of both categories. Prime numbers have exactly two distinct factors (which is 1 and itself), while composite numbers are greater than 1 and can be factored into multiple smaller integers. Since 1 doesnt fit in these definitions, it falls outside the prime and composite classifications."
         document.getElementById("numbertype").style.backgroundColor = "White";
         document.getElementById("factors").style.display = "none";
         document.getElementById("primefactors").style.display = "none";
