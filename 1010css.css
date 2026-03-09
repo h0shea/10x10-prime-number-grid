@@ -6,6 +6,7 @@ body {
     margin: 0;
 
     display: flex;
+    font-family: arial;
 }
 
 body, #desc, .inside, .main {
@@ -13,9 +14,13 @@ body, #desc, .inside, .main {
     align-items: center;
 }
 
-.main, #desc {
+body, .main, #desc {
     flex-direction: column;
 }
+
+ .main, #desc {
+    height: 100%;
+ }
 
 .main {
     display: flex;
@@ -51,7 +56,6 @@ body, #desc, .inside, .main {
 
 .prime:hover {
     background-color:rgb(200, 0, 0);
-    box-shadow: white 0 0 5px;
 }
 
 .notprime:hover   {
@@ -104,10 +108,6 @@ body, html{
 h2, h3  {
     text-align: center;
     font-family:helvetica;
-}
-
-p   {
-    font-family: arial;
 }
 
 .inside {
